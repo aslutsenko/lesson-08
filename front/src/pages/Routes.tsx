@@ -6,10 +6,11 @@ import { AboutPage } from './AboutPage/AboutPage'
 import { AuthPage } from './AuthPage/AuthPage'
 import { CatalogPage } from './CatalogPage/CatalogPage'
 import { Error404 } from './Error404/Error404'
-import {AuthorsPage} from "./AuthorsPage/AuthorsPage";
-import {GenresPage} from "./GenresPage/GenresPage";
-import {LanguagesPage} from "./LanguagesPage/LanguagesPage";
-import {PublishersPage} from "./Publishers/PublishersPage";
+import {AuthorsPage} from "./References/AuthorsPage/AuthorsPage";
+import {GenresPage} from "./References/GenresPage/GenresPage";
+import {PublishersPage} from "./References/Publishers/PublishersPage";
+import {LanguagesPage} from "./References/LanguagesPage/LanguagesPage";
+import {ReferencesPage} from "./References/ReferencesPage/ReferencesPage";
 
 interface Props {
 }
@@ -20,7 +21,7 @@ export const Routes: React.FC<Props> = () => {
       <Redirect exact from={'/'} to={'/catalog'} />
       <Page path={'/auth'} layout={AuthLayout} component={AuthPage} />
       <Page secured path={'/catalog'} component={CatalogPage} />
-      <Page exact secured path={'/ref'} component={() => 'Справочники'} />
+      <Page exact secured path={'/ref'} component={ReferencesPage} />
       <Page secured path={'/ref/authors'} component={AuthorsPage}/>
       <Page secured path={'/ref/genres'} component={GenresPage}/>
       <Page secured path={'/ref/languages'} component={LanguagesPage}/>
