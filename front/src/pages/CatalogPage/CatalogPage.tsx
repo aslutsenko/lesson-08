@@ -10,7 +10,7 @@ const b = block('catalog-page')
 export const CatalogPage: React.FC<Props> = () => {
   return (
     <div className={b()}>
-      Каталог
+      Catalog
     </div>
   )
 }
