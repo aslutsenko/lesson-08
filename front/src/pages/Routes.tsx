@@ -9,6 +9,7 @@ import { Error404 } from './Error404/Error404'
 import {Author} from '../components/Guids/Author/Author'
 import {Genre} from '../components/Guids/Genre/Genre'
 import { Language } from '../components/Guids/Language/Language'
+import { Publisher } from '../components/Guids/Publisher/Publisher'
 
 
 
@@ -25,6 +26,7 @@ export const Routes: React.FC<Props> = () => {
       <Page secured path={'/ref/authors'} component={Author} />
       <Page secured path={'/ref/genre'} component={Genre} />
       <Page secured path={'/ref/languade'} component={Language} />
+      <Page secured path={'/ref/publisher'} component={Publisher} />
       <Page secured path={'/about'} component={AboutPage} />
       <Page path={'*'} layout={AuthLayout} component={Error404} />
     </Switch>
