@@ -1,4 +1,4 @@
-import { apiAuthLogin } from '../../api/auth'
+import { apiAuthLogin, apiAuthLogout } from '../../api/auth'
 import { browserHistory } from '../../browserHistory'
 import { App } from '../../types/app'
 import { AppAction } from './appAction'
@@ -22,6 +22,10 @@ export const appClearError = (): AppState.Action.ClearError => ({
   type: AppAction.ClearError
 })
 
+const appClear = (): AppState.Action.Clear => ({
+  type: AppAction.Clear
+})
+
 export const appActions: AppState.ActionThunk = {
   appLogin: params => async (dispatch) => {
     dispatch(appFetch())
@@ -38,6 +42,15 @@ export const appActions: AppState.ActionThunk = {
     const { errorText } = getState().app
     if (errorText !== '') {
       dispatch(appClearError())
+    }
+  },
+  clear: () => async (dispatch) => {
+    try {
+      await apiAuthLogout()
+    } catch (err) {
+      console.error(err)
+    } finally {
+      dispatch(appClear())
     }
   }
 }

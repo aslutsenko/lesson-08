@@ -17,12 +17,14 @@ export declare namespace AppState {
     type FetchSuccess = ActionRedux<AppAction.FetchSuccess> & { payload: App.Token }
     type FetchError = ActionRedux<AppAction.FetchError> & { payload: string }
     type ClearError = ActionRedux<AppAction.ClearError>
+    type Clear = ActionRedux<AppAction.Clear>
 
-    type All = Fetch | FetchSuccess | FetchError | ClearError
+    type All = Fetch | FetchSuccess | FetchError | ClearError | Clear
   }
 
   interface ActionThunk {
     appLogin: Thunk<Auth.Login.Params>
-    clearError: Thunk
+    clearError: Thunk,
+    clear: Thunk
   }
 }

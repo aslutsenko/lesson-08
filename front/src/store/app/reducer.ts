@@ -35,6 +35,10 @@ export const appReducer: Reducer<AppState.State, AppState.Action.All> = (state =
         ...state,
         errorText: ''
       }
+    case AppAction.Clear:
+      return {
+        ...initState
+      }
     default:
       return state
   }
