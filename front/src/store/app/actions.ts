@@ -18,6 +18,10 @@ const appFetchError = (payload: string): AppState.Action.FetchError => ({
   payload
 })
 
+export const appClearError = (): AppState.Action.ClearError => ({
+  type: AppAction.ClearError
+})
+
 export const appActions: AppState.ActionThunk = {
   appLogin: params => async (dispatch) => {
     dispatch(appFetch())
@@ -27,7 +31,13 @@ export const appActions: AppState.ActionThunk = {
       dispatch(appFetchSuccess(tokenPair))
       browserHistory.push('/')
     } catch (err) {
-      dispatch(appFetchError('Ошибка авторизации.'))
+      dispatch(appFetchError(err.message))
+    }
+  },
+  clearError: () => (dispatch, getState) => {
+    const { errorText } = getState().app
+    if (errorText !== '') {
+      dispatch(appClearError())
     }
   }
 }

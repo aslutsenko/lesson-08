@@ -9,13 +9,13 @@ interface Props {
 
 const b = block('main-layout')
 
-export const MainLayout: React.FC<Props> = (props) => {
+export const MainLayout: React.FC<Props> = ({ children }) => {
   return (
     <div className={b()}>
       <Header />
       <MainMenu />
       <main className={b('main')}>
-        {props.children}
+        {children}
       </main>
     </div>
   )
