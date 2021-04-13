@@ -12,7 +12,7 @@ const b = block('auth-layout')
 export const AuthLayout: React.FC<Props> = (props) => {
   return (
     <div className={b()}>
-      <Header />
+      <Header phone={'+7-000-1234-567'} />
       <main className={b('main')}>
         {props.children}
       </main>
